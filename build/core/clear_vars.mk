@@ -1,5 +1,5 @@
 #
-# aoscp-specific variable clears
+# wave-specific variable clears
 #
 LOCAL_IGNORE_SUBDIR :=
 

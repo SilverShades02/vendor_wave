@@ -22,13 +22,13 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
     librsjni
 
-# AOSCP Packages
+# Wave Packages
 PRODUCT_PACKAGES += \
     GalleryX \
     LunaQuickStep
 
-# Aoscp OTA
-PRODUCT_PACKAGES += COTA
+# Wave OTA
+PRODUCT_PACKAGES += WOTA
 
 # Google Packages
 PRODUCT_PACKAGES += \

@@ -1,6 +1,6 @@
 #
 # Copyright (C) 2018 CypherOS
-#
+#           (C) 2018 WaveOS
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -18,14 +18,14 @@
 # Handle various build version information.
 #
 # Guarantees that the following are defined:
-#     AOSCP_VERSION
+#     WAVE_VERSION
 #     PLATFORM_LUNA_VERSION_CODE
 #     PLATFORM_LUNA_BUILD_NUMBER
 #     PLATFORM_LUNA_MAINTENANCE_PATCH
 #
 
-ifndef AOSCP_VERSION
-  # This is the global aoscp version that determines our releases
+ifndef WAVE_VERSION
+  # This is the global wave version that determines our releases
   # in various types. The types are defined as Major, Minor, and Maintenance.
   # Example of this syntax:
   # Major: The first number indicates a major system upgrade
@@ -33,20 +33,20 @@ ifndef AOSCP_VERSION
   #        may include system pacthes for improvements and small new features.
   # Maintenance: The third number indicates a maintenance system upgrade with
   #              small, but effective improvements throughout the system.
-  AOSCP_VERSION := 7.0.0
+  WAVE_VERSION := ONE.ZERO
 endif
 
 ifndef PLATFORM_LUNA_VERSION_CODE
   # As part of the Luna platform, each Major system upgrade is released
   # under a specific codename. The indicates which codename for which
   # major system upgrade under the Luna platform.
-  PLATFORM_LUNA_VERSION_CODE := Poundcake
+  PLATFORM_LUNA_VERSION_CODE := Shore
 endif
 
 ifndef PLATFORM_LUNA_BUILD_NUMBER
   # As part of the Luna platform, the Luna platform build number is a
   # separate indication of our build id's, which help track what build
-  # on what particular version of aoscp. This allows generation new packages
+  # on what particular version of wave. This allows generation new packages
   # and specific makefiles when making multiple builds under the same version.
   # Example of this syntax:
   # LPBN: Luna Platform Build Number

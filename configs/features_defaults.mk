@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2018 CypherOS
+#           (C) 2018 WaveOS
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,17 +22,17 @@
 #     TARGET_LUNA_PLATFORM_THEMES
 #
 
-# This configuration allows including Luna platform themes in aoscp
+# This configuration allows including Luna platform themes in wave
 # builds. Our themes utitlize the OMS platform natively embedded in
 # Android alongside the core framework of Color Manager
 TARGET_LUNA_PLATFORM_THEMES := true
 
-# This configuration allows including Luna platform themes in aoscp
+# This configuration allows including Luna platform themes in wave
 # builds. Our themes utitlize the OMS platform natively embedded in
 # Android alongside the core framework of Color Manager
 TARGET_LUNA_PLATFORM_SEPOLICY := false
 
-# This configuration allows including Luna platform apps in aoscp
+# This configuration allows including Luna platform apps in wave
 # builds, that depend heavily on the Android SDK. When the sdk is
 # updated, apps may require updates themselves to support the new
 # API's.

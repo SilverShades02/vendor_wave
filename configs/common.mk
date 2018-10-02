@@ -1,25 +1,25 @@
-PRODUCT_BRAND ?= aoscp
-LOCAL_PATH := vendor/aoscp/
+PRODUCT_BRAND ?= wave
+LOCAL_PATH := vendor/wave/
 
 include $(LOCAL_PATH)configs/version_defaults.mk
 include $(LOCAL_PATH)configs/features_defaults.mk
 
 # We build unofficial by default
-ifndef AOSCP_BUILDTYPE
-    AOSCP_BUILDTYPE := unofficial
+ifndef WAVE_BUILDTYPE
+    WAVE_BUILDTYPE := unofficial
 endif
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.modversion=$(AOSCP_VERSION)-$(shell date -u +%Y%m%d) \
-    ro.aoscp.version=$(AOSCP_VERSION) \
-    ro.aoscp.version_code=$(PLATFORM_LUNA_VERSION_CODE) \
-    ro.aoscp.device=$(AOSCP_BUILD) \
-    ro.aoscp.display.version=$(AOSCP_VERSION) \
-    ro.aoscp.releasetype=$(AOSCP_BUILDTYPE) \
-    ro.aoscp.build=$(PLATFORM_LUNA_BUILD_NUMBER) \
-    ro.aoscp.maintenance_patch=$(PLATFORM_LUNA_MAINTENANCE_PATCH)
+    ro.modversion=$(WAVE_VERSION)-$(shell date -u +%Y%m%d) \
+    ro.wave.version=$(WAVE_VERSION) \
+    ro.wave.version_code=$(PLATFORM_LUNA_VERSION_CODE) \
+    ro.wave.device=$(WAVE_BUILD) \
+    ro.wave.display.version=$(WAVE_VERSION) \
+    ro.wave.releasetype=$(WAVE_BUILDTYPE) \
+    ro.wave.build=$(PLATFORM_LUNA_BUILD_NUMBER) \
+    ro.wave.maintenance_patch=$(PLATFORM_LUNA_MAINTENANCE_PATCH)
 
-export AOSCP_TARGET_ZIP := aoscp_$(AOSCP_BUILD)-$(AOSCP_VERSION)-$(shell date -u +%Y%m%d)-$(AOSCP_BUILDTYPE).zip
+export WAVE_TARGET_ZIP := WaveOS-$(WAVE_BUILD)-$(WAVE_VERSION)-$(shell date -u +%Y%m%d)-$(WAVE_BUILDTYPE).zip
 
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
@@ -63,7 +63,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIESS += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
     $(LOCAL_PATH)prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    $(LOCAL_PATH)prebuilt/common/bin/50-aoscp.sh:system/addon.d/50-aoscp.sh \
+    $(LOCAL_PATH)prebuilt/common/bin/50-wave.sh:system/addon.d/50-wave.sh \
     $(LOCAL_PATH)prebuilt/common/bin/blacklist:system/addon.d/blacklist \
     $(LOCAL_PATH)prebuilt/common/bin/99-backup.sh:system/addon.d/99-backup.sh
 
@@ -87,8 +87,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
 endif
 
-# AOSCP specific init file
-PRODUCT_COPY_FILES += $(LOCAL_PATH)prebuilt/common/etc/init.aoscp.rc:root/init.aoscp.rc
+# Wave specific init file
+PRODUCT_COPY_FILES += $(LOCAL_PATH)prebuilt/common/etc/init.wave.rc:root/init.wave.rc
 
 # Installer
 PRODUCT_COPY_FILES += \

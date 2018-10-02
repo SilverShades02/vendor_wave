@@ -1,4 +1,4 @@
-# AOSCP Extras
+# Wave Extras
 
 on init
     export ANDROID_CACHE /cache

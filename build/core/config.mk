@@ -1,6 +1,7 @@
 # Copyright (C) 2015 The CyanogenMod Project
 #           (C) 2017 The LineageOS Project
 #           (C) 2018 CypherOS
+#           (C) 2018 WaveOS
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,8 +15,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-BUILD_MAVEN_PREBUILT := $(TOP)/vendor/aoscp/build/core/maven_artifact.mk
-PUBLISH_MAVEN_PREBUILT := $(TOP)/vendor/aoscp/build/core/maven_artifact_publish.mk
+BUILD_MAVEN_PREBUILT := $(TOP)/vendor/wave/build/core/maven_artifact.mk
+PUBLISH_MAVEN_PREBUILT := $(TOP)/vendor/wave/build/core/maven_artifact_publish.mk
 
 # We modify several neverallows, so let the build proceed
 ifneq ($(TARGET_BUILD_VARIANT),user)
@@ -23,7 +24,7 @@ SELINUX_IGNORE_NEVERALLOWS := true
 endif
 
 # Rules for MTK targets
-include $(TOPDIR)vendor/aoscp/build/core/mtk_target.mk
+include $(TOPDIR)vendor/wave/build/core/mtk_target.mk
 
 # Rules for QCOM targets
-include $(TOPDIR)vendor/aoscp/build/core/qcom_target.mk
+include $(TOPDIR)vendor/wave/build/core/qcom_target.mk

@@ -1,13 +1,13 @@
-function __print_aoscp_functions_help() {
+function __print_wave_functions_help() {
 cat <<EOF
-Additional CypherOS functions:
+Additional WaveOS functions:
 - cout:            Changes directory to out.
 - mmp:             Builds all of the modules in the current directory and pushes them to the device.
 - mmap:            Builds all of the modules in the current directory and its dependencies, then pushes the package to the device.
 - mmmp:            Builds all of the modules in the supplied directories and pushes them to the device.
-- aoscpgerrit:   A Git wrapper that fetches/pushes patch from/to CypherOS Gerrit Review.
-- aoscprebase:   Rebase a Gerrit change and push it again.
-- aoscpremote:   Add git remote for CypherOS Gerrit Review.
+- wavegerrit:   A Git wrapper that fetches/pushes patch from/to WaveOS Gerrit Review.
+- waverebase:   Rebase a Gerrit change and push it again.
+- waveremote:   Add git remote for WaveOS Gerrit Review.
 - aospremote:      Add git remote for matching AOSP repository.
 - cafremote:       Add git remote for matching CodeAurora repository.
 - mka:             Builds using SCHED_BATCH on all processors.
@@ -67,10 +67,10 @@ function breakfast()
 {
     target=$1
     local variant=$2
-    AOSCP_DEVICES_ONLY="true"
+    WAVE_DEVICES_ONLY="true"
     unset LUNCH_MENU_CHOICES
     add_lunch_combo full-eng
-    for f in `/bin/ls vendor/aoscp/vendorsetup.sh 2> /dev/null`
+    for f in `/bin/ls vendor/wave/vendorsetup.sh 2> /dev/null`
         do
             echo "including $f"
             . $f
@@ -86,12 +86,12 @@ function breakfast()
             # A buildtype was specified, assume a full device name
             lunch $target
         else
-            # This is probably just the aoscp model name
+            # This is probably just the wave model name
             if [ -z "$variant" ]; then
                 variant="userdebug"
             fi
 
-            lunch aoscp_$target-$variant
+            lunch wave_$target-$variant
         fi
     fi
     return $?
@@ -102,7 +102,7 @@ alias bib=breakfast
 function eat()
 {
     if [ "$OUT" ] ; then
-        ZIPPATH=`ls -tr "$OUT"/aoscp_*.zip | tail -1`
+        ZIPPATH=`ls -tr "$OUT"/WaveOS-*.zip | tail -1`
         if [ ! -f $ZIPPATH ] ; then
             echo "Nothing to eat"
             return 1
@@ -116,7 +116,7 @@ function eat()
             done
             echo "Device Found.."
         fi
-        if (adb shell getprop ro.aoscp.device | grep -q "$AOSCP_BUILD"); then
+        if (adb shell getprop ro.wave.device | grep -q "$WAVE_BUILD"); then
             # if adbd isn't root we can't write to /cache/recovery/
             adb root
             sleep 1
@@ -132,7 +132,7 @@ EOF
             fi
             rm /tmp/command
         else
-            echo "The connected device does not appear to be $AOSCP_BUILD, run away!"
+            echo "The connected device does not appear to be $WAVE_BUILD, run away!"
         fi
         return $?
     else
@@ -923,13 +923,13 @@ alias cmkap='dopush cmka'
 
 function repopick() {
     T=$(gettop)
-    $T/vendor/aoscp/build/tools/repopick.py $@
+    $T/vendor/wave/build/tools/repopick.py $@
 }
 
 function fixup_common_out_dir() {
     common_out_dir=$(get_build_var OUT_DIR)/target/common
     target_device=$(get_build_var TARGET_DEVICE)
-    if [ ! -z $AOSCP_FIXUP_COMMON_OUT ]; then
+    if [ ! -z $WAVE_FIXUP_COMMON_OUT ]; then
         if [ -d ${common_out_dir} ] && [ ! -L ${common_out_dir} ]; then
             mv ${common_out_dir} ${common_out_dir}-${target_device}
             ln -s ${common_out_dir}-${target_device} ${common_out_dir}
@@ -954,7 +954,7 @@ if [ -d $(gettop)/prebuilts/snapdragon-llvm/toolchains ]; then
             export SDCLANG=true
             export SDCLANG_PATH=$(gettop)/prebuilts/snapdragon-llvm/toolchains/llvm-Snapdragon_LLVM_for_Android_4.0/prebuilt/linux-x86_64/bin
             export SDCLANG_PATH_2=$(gettop)/prebuilts/snapdragon-llvm/toolchains/llvm-Snapdragon_LLVM_for_Android_4.0/prebuilt/linux-x86_64/bin
-            export SDCLANG_LTO_DEFS=$(gettop)/vendor/aoscp/build/core/sdllvm-lto-defs.mk
+            export SDCLANG_LTO_DEFS=$(gettop)/vendor/wave/build/core/sdllvm-lto-defs.mk
             ;;
     esac
 fi

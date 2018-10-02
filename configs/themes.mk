@@ -1,6 +1,6 @@
 ifeq ($(TARGET_LUNA_PLATFORM_THEMES),true)
 # Theme vendor extension
--include vendor/aoscp/themes/Android.mk
+-include vendor/wave/themes/Android.mk
 
 # Dark Theme
 PRODUCT_PACKAGES += \

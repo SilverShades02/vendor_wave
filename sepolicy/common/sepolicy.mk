@@ -1,14 +1,14 @@
 #
 # This policy configuration will be used by all products that
-# inherit from aoscp
+# inherit from wave
 #
 ifeq ($(TARGET_LUNA_PLATFORM_SEPOLICY),true)
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += \
-    vendor/aoscp/sepolicy/common/public
+    vendor/wave/sepolicy/common/public
 
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
-    vendor/aoscp/sepolicy/common/private
+    vendor/wave/sepolicy/common/private
 
 BOARD_SEPOLICY_DIRS += \
-    vendor/aoscp/sepolicy/common/vendor
+    vendor/wave/sepolicy/common/vendor
 endif

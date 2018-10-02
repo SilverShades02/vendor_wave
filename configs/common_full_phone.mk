@@ -1,6 +1,6 @@
-# Inherit common AOSCP stuff
-$(call inherit-product, vendor/aoscp/configs/common.mk)
-$(call inherit-product, vendor/aoscp/configs/telephony.mk)
+# Inherit common Wave stuff
+$(call inherit-product, vendor/wave/configs/common.mk)
+$(call inherit-product, vendor/wave/configs/telephony.mk)
 
 PRODUCT_SIZE := full
 
